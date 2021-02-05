@@ -1,0 +1,33 @@
+version: '3.9'
+services:
+  db:
+    image: mysql:5.7
+    container_name: ${COMPOSE_PROJECT_NAME}_db
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: mysql@dmin
+      MYSQL_DATABASE: prestashop
+      MYSQL_USER: prestashop
+      MYSQL_PASSWORD: prestashop
+  web:
+    depends_on:
+      - db
+    build: .
+    container_name: ${COMPOSE_PROJECT_NAME}_web
+    volumes:
+      - ./${COMPOSE_PROJECT_NAME}:/var/www/html/modules/${COMPOSE_PROJECT_NAME}
+    ports:
+      - "${PORT}:80"
+    restart: always
+    environment:
+      PS_DEV_MODE: 1
+      PS_DOMAIN: localhost:${PORT}
+      PS_INSTALL_AUTO: 1
+      PS_INSTALL_DB: 1
+      PS_FOLDER_ADMIN: backoffice
+      PS_FOLDER_INSTALL: _install
+      DB_SERVER: ${COMPOSE_PROJECT_NAME}_db
+      DB_USER: prestashop
+      DB_PASSWD: prestashop
+      ADMIN_MAIL: admin@prestashop.com
+      ADMIN_PASSWD: prestashop@dmin

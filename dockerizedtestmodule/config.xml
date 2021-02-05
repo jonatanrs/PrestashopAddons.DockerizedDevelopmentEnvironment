@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<module>
+	<name>dockerizedtestmodule</name>
+	<displayName><![CDATA[Dockerized test module]]></displayName>
+	<version><![CDATA[1.0.0]]></version>
+	<description><![CDATA[This is a bootstraping skeleton module generated from the prestashop module generator to start up develop a prestashop module over a dockerized environment.]]></description>
+	<author><![CDATA[Jonatan Rodríguez Suárez]]></author>
+	<tab><![CDATA[front_office_features]]></tab>
+	<is_configurable>1</is_configurable>
+	<need_instance>1</need_instance>
+</module>

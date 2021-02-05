@@ -1,0 +1,1 @@
+<div style='background:red;'>{$dockerizedtestmodule_message}</div>
